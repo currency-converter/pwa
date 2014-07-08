@@ -1,4 +1,10 @@
-﻿# kdiff3 ignore
+# qzz/fekit/grunt
+/ver/
+/dev/
+/prd/
+/refs/
+
+# kdiff3 ignore
 *.orig
 
 # maven ignore
