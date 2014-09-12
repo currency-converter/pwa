@@ -17,7 +17,7 @@
 	
     <properties>
 		<!--qzz_files为项目相应的.ver, ver or refs-->
-        <qzz_files>.ver</qzz_files>
+        <qzz_files>ver</qzz_files>
     </properties>
 
 	<build>
