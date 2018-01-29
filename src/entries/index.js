@@ -31,9 +31,9 @@ addLocaleData(appLocale.data);
 
 const store = createStore(reducer);
 
-// if (process.env.NODE_ENV !== 'local') {
-//   OfflinePluginRuntime.install();
-// }
+if (['beta', 'production'].indexOf(process.env.NODE_ENV) > -1) {
+  OfflinePluginRuntime.install();
+}
 
 OfflinePluginRuntime.install();
 
