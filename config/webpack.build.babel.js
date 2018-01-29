@@ -32,6 +32,9 @@ export default (webpackConfig, program, appConfig) => {
       additional: [':externals:']
     },
     externals: ['./'],
+    ServiceWorker: {
+      publicPath: '/sw.js'
+    },
     safeToUseOptionalCaches: true
   }));
 
