@@ -20,6 +20,9 @@ export default (packing) => {
     '^/api/(.*)': 'require!/mock/api/$1.js'
   };
 
+  // 将所有 js 打成一个包
+  p.commonChunks = {};
+
   return p;
 };
 

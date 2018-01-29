@@ -15,7 +15,10 @@ export default (webpackConfig/* , program, appConfig */) => {
   // manifest.json 专用 loader
   config.module.rules.push({
     test: /manifest.json$/,
-    loader: 'file-loader'
+    loader: 'file-loader',
+    options: {
+      name: '[name].[ext]'
+    }
   });
 
   // PWA 插件
