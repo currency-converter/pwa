@@ -1,6 +1,6 @@
 export default {
   // CDN根目录
-  cdnRoot: '//mobileqzz.beta.qunar.com/cc/prd/assets/',
+  cdnRoot: 'https://mobileqzz.beta.qunar.com/cc/prd/assets/',
   me: {
     name: 'beta'
   }
