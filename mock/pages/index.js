@@ -25,7 +25,7 @@
        },
        {
          title: 'Murach JavaScript and DOM Scripting',
-         author: 'Ray Harris',
+         author: 'Ray Harris'
        },
        {
          title: 'Head First JavaScript',
