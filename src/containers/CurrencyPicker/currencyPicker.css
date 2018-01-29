@@ -1,0 +1,53 @@
+.currencyPicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & .content {
+    background-color: #fff;
+  }
+
+  & .searchBar {
+    background-color: #cac9cf;
+  }
+
+  & .group {
+    & .title {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      padding-left: 20px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 1.1rem;
+    }
+
+    & .item {
+      padding-left: 20px;
+      border-bottom: 0.5px solid #c9c9c9;
+      height: 56px;
+      line-height: 56px;
+      display: flex;
+      text-align: center;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.current {
+        background-color: #f0eff5;
+      }
+
+      & .star {
+        font-size: 2rem;
+        width: 2rem;
+      }
+
+      & .name {
+        width: 4rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

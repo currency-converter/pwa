@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "react",
+    ["env", {
+      "targets": {
+        "browsers": ["> 1%", "Android >= 4.4", "IOS >= 7", "ie >= 9"]
+      }
+    }],
+    "stage-0"
+  ],
+
+  "plugins": [
+    "add-module-exports",
+    "transform-decorators-legacy",
+    "transform-react-display-name"
+  ]
+}

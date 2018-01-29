@@ -1,0 +1,52 @@
+{
+  "name": "h5",
+  "description": "",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run serve",
+    "build": "packing build",
+    "build:dev": "NODE_ENV=development packing build",
+    "build:beta": "NODE_ENV=beta packing build",
+    "build:prod": "NODE_ENV=production packing build",
+    "serve": "packing serve",
+    "serve:dist": "packing build && packing serve-dist",
+    "eslint": "echo '\"npm run eslint\" will be scrapped in version 3. Please use \"npm run lint\" instead' && npm run lint",
+    "lint": "eslint --fix src"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "axios": "^0.17.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "classnames": "^2.2.5",
+    "offline-plugin": "^4.9.0",
+    "packing": "^2.6.2",
+    "postcss-cssnext": "^3.0.2",
+    "rc-switch": "^1.6.0",
+    "react": "^16.2.0",
+    "react-a11y": "^1.0.0",
+    "react-dom": "^16.2.0",
+    "react-intl": "^2.4.0",
+    "react-redux": "^5.0.2",
+    "react-transition-group": "^2.2.1",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "express": "^4.14.1",
+    "open-browser-webpack-plugin": "^0.0.5",
+    "packing-template-pug": "^1.1.7",
+    "packing-urlrewrite": "^0.1.7",
+    "pre-commit": "^1.2.2",
+    "redux-devtools": "^3.3.2",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.2.0",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-hot-middleware": "^2.17.0"
+  },
+  "engines": {
+    "node": ">=4.0",
+    "npm": ">=3.0"
+  }
+}

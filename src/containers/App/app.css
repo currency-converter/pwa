@@ -1,0 +1,32 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin:0;
+  font-family: 'Avenir';
+  height: 100%;
+}
+
+input,
+button {
+  font-family: 'Avenir';
+}
+
+.hidden {
+  display: none !important;
+}
+
+#app,
+.pages {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'cc';
+  src: url('../../../assets/fonts/currencyConverter.ttf');
+}
+
+.cc {
+  font-family: 'cc';
+}
