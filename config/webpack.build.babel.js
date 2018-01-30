@@ -9,15 +9,16 @@
 
 import OfflinePlugin from 'offline-plugin';
 import ReplaceHashWebpackPlugin from 'replace-hash-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default (webpackConfig, program, appConfig) => {
   const config = webpackConfig;
   const {
     path: {
+      templates,
       templatesDist,
       assetsDist
     },
-    templateExtension,
     fileHashLength
   } = appConfig;
 
@@ -39,13 +40,28 @@ export default (webpackConfig, program, appConfig) => {
   }));
 
   // 删除原有的 ReplaceHashPlugin
+  const uselessPlugins = [
+    'UncommentBlock',
+    'ReplaceHashPlugin',
+    'CommonsChunkPlugin'
+  ];
   config.plugins = config.plugins
-    .filter(plugin => plugin.constructor.name !== 'ReplaceHashPlugin');
+    .filter(plugin => uselessPlugins.indexOf(plugin.constructor.name) < 0);
 
-  // 替换 首页pug 中的 manifest.json
+  config.plugins.push(new HtmlWebpackPlugin({
+    title: 'Currency Converter',
+    template: `${templates}/index.html`,
+    filename: '../templates/index.html',
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true
+    }
+  }));
+
+  // 替换 首页中的 manifest.json
   config.plugins.push(new ReplaceHashWebpackPlugin({
     cwd: templatesDist,
-    src: `**/*${templateExtension}`,
+    src: 'index.html',
     dest: templatesDist,
     exts: ['js', 'css', 'png', 'json']
   }));
@@ -66,6 +82,8 @@ export default (webpackConfig, program, appConfig) => {
       name: `[name]-[hash:${fileHashLength}].[ext]`
     }
   });
+
+  console.log(config);
 
   return config;
 };

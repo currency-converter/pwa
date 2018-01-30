@@ -8,9 +8,15 @@
  */
 
 import OfflinePlugin from 'offline-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export default (webpackConfig/* , program, appConfig */) => {
+export default (webpackConfig, program, appConfig) => {
   const config = webpackConfig;
+  const {
+    path: {
+      templates
+    }
+  } = appConfig;
 
   // manifest.json 专用 loader
   config.module.rules.push({
@@ -20,6 +26,10 @@ export default (webpackConfig/* , program, appConfig */) => {
       name: '[name].[ext]'
     }
   });
+
+  config.plugins.push(new HtmlWebpackPlugin({
+    template: `${templates}/index.html`
+  }));
 
   // PWA 插件
   config.plugins.push(new OfflinePlugin({
