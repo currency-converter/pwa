@@ -23,25 +23,53 @@ export default (webpackConfig, program, appConfig) => {
   } = appConfig;
 
   config.plugins.push(new OfflinePlugin({
-    caches: {
-      main: [
-        // These assets don't have a chunk hash.
-        // SW fetch them on every SW update.
-        // './',
-        ':rest:'
-      ],
-      additional: [':externals:']
-    },
-    externals: ['./'],
+    safeToUseOptionalCaches: true,
+
+    // caches: {
+    //   main: [
+    //     'main*.js',
+    //     'main*.css',
+    //     'index.html'
+    //   ],
+    //   additional: [
+    //     '*.woff',
+    //     '*.woff2',
+    //     '*.ttf',
+    //     '*.png'
+    //   ],
+    //   optional: [
+    //     ':rest:'
+    //   ]
+    // },
+
+    externals: ['index.html'],
+
     ServiceWorker: {
-      output: '../templates/sw.js',
-      publicPath: '/sw.js'
+      publicPath: '/sw.js',
+      events: true
     },
     AppCache: {
-      output: '../templates/appcache',
-      publicPath: '/appcache'
-    },
-    safeToUseOptionalCaches: true
+      events: true
+    }
+    // caches: {
+    //   main: [
+    //     // These assets don't have a chunk hash.
+    //     // SW fetch them on every SW update.
+    //     // './',
+    //     ':rest:'
+    //   ],
+    //   additional: [':externals:']
+    // },
+    // externals: ['./'],
+    // ServiceWorker: {
+    //   // output: '../templates/sw.js',
+    //   publicPath: '/sw.js'
+    // },
+    // // AppCache: {
+    // //   output: '../templates/appcache',
+    // //   publicPath: '/appcache'
+    // // },
+    // safeToUseOptionalCaches: true
   }));
 
   // 删除原有的 ReplaceHashPlugin
