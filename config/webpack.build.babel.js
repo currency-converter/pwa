@@ -34,7 +34,12 @@ export default (webpackConfig, program, appConfig) => {
     },
     externals: ['./'],
     ServiceWorker: {
+      output: '../templates/sw.js',
       publicPath: '/sw.js'
+    },
+    AppCache: {
+      output: '../templates/appcache',
+      publicPath: '/appcache'
     },
     safeToUseOptionalCaches: true
   }));

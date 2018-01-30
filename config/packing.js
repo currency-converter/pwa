@@ -12,15 +12,11 @@ export default (packing) => {
     main: 'entries/index.js'
   };
 
-  p.uncommentPattern = /\/\/\s*comment-open\s*(.*?)/g;
-  // 模版引擎类型，目前支持的类型有[html,pug,ejs,handlebars,smarty,velocity,artTemplate]
-  // p.templateEngine = 'pug';
-  // 模版文件扩展名
-  // p.templateExtension = '.pug';
-  // 网站自定义配置
+  p.path.templatesPagesDist = 'prd/templates';
+
   p.rewriteRules = {
     // 网站URL与模版的对应路由关系
-    // '^/$': '/index.pug',
+    '^/$': '/index.html',
     // API转发
     '^/api/(.*)': 'require!/mock/api/$1.js'
   };
