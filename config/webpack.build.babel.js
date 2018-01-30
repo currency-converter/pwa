@@ -42,7 +42,7 @@ export default (webpackConfig, program, appConfig) => {
     //   ]
     // },
 
-    externals: ['index.html'],
+    // externals: ['https://cal20.beta.qunar.com/'],
 
     ServiceWorker: {
       publicPath: '/sw.js',
