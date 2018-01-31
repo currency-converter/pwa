@@ -51,7 +51,10 @@ export default (webpackConfig, program, appConfig) => {
       minify: false
       // events: true
     },
-    AppCache: false
+    AppCache: {
+      output: '../templates/appcache',
+      publicPath: '/'
+    }
     // caches: {
     //   main: [
     //     // These assets don't have a chunk hash.
