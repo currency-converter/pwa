@@ -7,7 +7,6 @@
  * @param object appConfig config/packing.js中的配置
  */
 
-import OfflinePlugin from 'offline-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default (webpackConfig, program, appConfig) => {
@@ -29,21 +28,6 @@ export default (webpackConfig, program, appConfig) => {
 
   config.plugins.push(new HtmlWebpackPlugin({
     template: `${templates}/index.html`
-  }));
-
-  // PWA 插件
-  config.plugins.push(new OfflinePlugin({
-    caches: {
-      main: [
-        // These assets don't have a chunk hash.
-        // SW fetch them on every SW update.
-        // './',
-        ':rest:'
-      ],
-      additional: [':externals:']
-    },
-    externals: ['./'],
-    safeToUseOptionalCaches: true
   }));
 
   return config;

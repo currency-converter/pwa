@@ -9,6 +9,7 @@
 
 import OfflinePlugin from 'offline-plugin';
 import ReplaceHashWebpackPlugin from 'replace-hash-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default (webpackConfig, program, appConfig) => {
@@ -16,10 +17,10 @@ export default (webpackConfig, program, appConfig) => {
   const {
     path: {
       templates,
-      templatesDist,
-      assetsDist
-    },
-    fileHashLength
+      templatesDist // ,
+      // assetsDist
+    } // ,
+    // fileHashLength
   } = appConfig;
 
   config.plugins.push(new OfflinePlugin({
@@ -42,15 +43,15 @@ export default (webpackConfig, program, appConfig) => {
     //   ]
     // },
 
-    // externals: ['/'],
+    externals: ['/'],
 
     ServiceWorker: {
+      output: '../templates/sw.js',
       publicPath: '/sw.js',
-      events: true
+      minify: false
+      // events: true
     },
-    AppCache: {
-      events: true
-    }
+    AppCache: false
     // caches: {
     //   main: [
     //     // These assets don't have a chunk hash.
@@ -96,25 +97,29 @@ export default (webpackConfig, program, appConfig) => {
     cwd: templatesDist,
     src: 'index.html',
     dest: templatesDist,
-    exts: ['js', 'css', 'png', 'json']
+    exts: ['js', 'css', 'png']
   }));
 
   // 替换 manifest.json 中的图片
   config.plugins.push(new ReplaceHashWebpackPlugin({
-    cwd: assetsDist,
-    src: 'manifest*.json',
-    dest: assetsDist,
+    cwd: templatesDist,
+    src: 'manifest.json',
+    dest: templatesDist,
     exts: ['png']
   }));
 
+  config.plugins.push(new CopyWebpackPlugin([
+    { from: 'assets/manifest.json', to: '../templates/manifest.json' }
+  ]));
+
   // manifest.json 专用 loader
-  config.module.rules.push({
-    test: /manifest.json$/,
-    loader: 'file-loader',
-    options: {
-      name: `[name]-[hash:${fileHashLength}].[ext]`
-    }
-  });
+  // config.module.rules.push({
+  //   test: /manifest.json$/,
+  //   loader: 'file-loader',
+  //   options: {
+  //     name: '[name].[ext]'
+  //   }
+  // });
 
   // console.log(config);
 

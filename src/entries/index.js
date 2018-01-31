@@ -6,7 +6,7 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import reducer from '../reducers';
 import App from '../containers/App';
-import '../../assets/manifest.json';
+// import '../../assets/manifest.json';
 import '../../assets/images/16.png';
 import '../../assets/images/32.png';
 import '../../assets/images/128.png';
