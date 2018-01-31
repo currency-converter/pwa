@@ -9,5 +9,6 @@ else
   yarn
   echo target_name: $1
   yarn build:$1
-  mv prd/templates templates
+  rm -rf assets
+  mv prd/assets assets
 fi

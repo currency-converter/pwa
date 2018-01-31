@@ -17,63 +17,22 @@ export default (webpackConfig, program, appConfig) => {
   const {
     path: {
       templates,
-      templatesDist // ,
-      // assetsDist
+      assetsDist
     } // ,
     // fileHashLength
   } = appConfig;
 
   config.plugins.push(new OfflinePlugin({
-    safeToUseOptionalCaches: true,
-
-    // caches: {
-    //   main: [
-    //     'main*.js',
-    //     'main*.css',
-    //     'index.html'
-    //   ],
-    //   additional: [
-    //     '*.woff',
-    //     '*.woff2',
-    //     '*.ttf',
-    //     '*.png'
-    //   ],
-    //   optional: [
-    //     ':rest:'
-    //   ]
-    // },
-
     externals: ['/'],
 
-    ServiceWorker: {
-      output: '../templates/sw.js',
-      publicPath: '/sw.js',
-      minify: false
-      // events: true
-    },
-    AppCache: {
-      output: '../templates/appcache',
-      publicPath: '/'
-    }
-    // caches: {
-    //   main: [
-    //     // These assets don't have a chunk hash.
-    //     // SW fetch them on every SW update.
-    //     // './',
-    //     ':rest:'
-    //   ],
-    //   additional: [':externals:']
-    // },
-    // externals: ['./'],
     // ServiceWorker: {
-    //   // output: '../templates/sw.js',
-    //   publicPath: '/sw.js'
+    //   output: '../templates/sw.js',
+    //   publicPath: '/sw.js',
+    //   minify: false
+    //   // events: true
     // },
-    // // AppCache: {
-    // //   output: '../templates/appcache',
-    // //   publicPath: '/appcache'
-    // // },
-    // safeToUseOptionalCaches: true
+
+    AppCache: false
   }));
 
   // 删除原有的 ReplaceHashPlugin
@@ -88,7 +47,7 @@ export default (webpackConfig, program, appConfig) => {
   config.plugins.push(new HtmlWebpackPlugin({
     title: 'Currency Converter',
     template: `${templates}/index.html`,
-    filename: '../templates/index.html',
+    // filename: '../templates/index.html',
     minify: {
       removeComments: true,
       collapseWhitespace: true
@@ -96,23 +55,23 @@ export default (webpackConfig, program, appConfig) => {
   }));
 
   // 替换 首页中的 manifest.json
-  config.plugins.push(new ReplaceHashWebpackPlugin({
-    cwd: templatesDist,
-    src: 'index.html',
-    dest: templatesDist,
-    exts: ['js', 'css', 'png']
-  }));
+  // config.plugins.push(new ReplaceHashWebpackPlugin({
+  //   cwd: assetsDist,
+  //   src: 'index.html',
+  //   dest: assetsDist,
+  //   exts: ['js', 'css', 'png']
+  // }));
 
   // 替换 manifest.json 中的图片
   config.plugins.push(new ReplaceHashWebpackPlugin({
-    cwd: templatesDist,
+    cwd: assetsDist,
     src: 'manifest.json',
-    dest: templatesDist,
+    dest: assetsDist,
     exts: ['png']
   }));
 
   config.plugins.push(new CopyWebpackPlugin([
-    { from: 'assets/manifest.json', to: '../templates/manifest.json' }
+    { from: 'assets/manifest.json', to: 'manifest.json' }
   ]));
 
   // manifest.json 专用 loader
