@@ -2,15 +2,17 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+    <meta name="apple-mobile-web-app-title" content="<%= htmlWebpackPlugin.options.title %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta content="telephone=no" name="format-detection">
-    <meta name="apple-mobile-web-app-title" content="Currency Converter">
-    <meta name="theme-color" content="#F00BA4" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/144.png">
-    <link rel="shortcut icon" href="/images/128.png">
-    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000" />
+
+    <link href="<%= require('../../assets/images/128.png') %>" rel="shortcut icon">
+    <link href="<%= require('../../assets/images/144.png') %>"rel="apple-touch-icon" >
+    <link href="<%= require('../../assets/images/144.png') %>" rel="apple-touch-startup-image">
+    <link href="<%= require('../../assets/manifest.json') %>" rel="manifest">
   </head>
 
   <body>

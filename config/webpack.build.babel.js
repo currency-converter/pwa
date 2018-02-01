@@ -9,7 +9,7 @@
 
 import OfflinePlugin from 'offline-plugin';
 import ReplaceHashWebpackPlugin from 'replace-hash-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+// import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default (webpackConfig, program, appConfig) => {
@@ -59,7 +59,7 @@ export default (webpackConfig, program, appConfig) => {
   //   cwd: assetsDist,
   //   src: 'index.html',
   //   dest: assetsDist,
-  //   exts: ['js', 'css', 'png']
+  //   exts: ['png']
   // }));
 
   // 替换 manifest.json 中的图片
@@ -70,18 +70,18 @@ export default (webpackConfig, program, appConfig) => {
     exts: ['png']
   }));
 
-  config.plugins.push(new CopyWebpackPlugin([
-    { from: 'assets/manifest.json', to: 'manifest.json' }
-  ]));
+  // config.plugins.push(new CopyWebpackPlugin([
+  //   { from: 'assets/manifest.json', to: 'manifest.json' }
+  // ]));
 
   // manifest.json 专用 loader
-  // config.module.rules.push({
-  //   test: /manifest.json$/,
-  //   loader: 'file-loader',
-  //   options: {
-  //     name: '[name].[ext]'
-  //   }
-  // });
+  config.module.rules.push({
+    test: /manifest.json$/,
+    loader: 'file-loader',
+    options: {
+      name: '[name].[ext]'
+    }
+  });
 
   // console.log(config);
 

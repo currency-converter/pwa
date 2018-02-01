@@ -21,7 +21,7 @@ export default (req, res) => {
       CAD: 1.24539,
       CHF: 0.9621,
       CLP: 604.7,
-      CNY: 6.3984,
+      CNY: 6.281,
       COP: 2849.4,
       CRC: 564,
       CZK: 20.7177,

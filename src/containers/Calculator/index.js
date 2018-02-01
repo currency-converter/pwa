@@ -90,13 +90,27 @@ export default class Calculator extends Component {
   }
 
   checkUpdate() {
-    const { enableAutoUpdate, updatedAt, dispatch } = this.props;
+    const {
+      enableAutoUpdate,
+      updatedAt,
+      dispatch,
+      enableCustomRate,
+      toCurrency,
+      fromCurrency
+    } = this.props;
+
     const diff = new Date().getTime() - updatedAt;
     if (enableAutoUpdate && diff > 3600 * 1000) {
       const url = '/api/rates';
       axios.get(url)
         .then((res) => {
-          dispatch(updateSettings(res.data));
+          const newSettings = res.data;
+          if (!enableCustomRate) {
+            // 未启用自定义汇率时，需要更新当前汇率
+            const { rates } = newSettings;
+            newSettings.rate = toFixed(rates[toCurrency] / rates[fromCurrency], 5);
+          }
+          dispatch(updateSettings(newSettings));
         })
         .catch((error) => {
           console.error(error);
