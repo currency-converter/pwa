@@ -3,7 +3,7 @@
   "short_name": "Currency Con",
   "description": "A simple currency converter",
   "lang": "zh",
-  "start_url": "./?source=webapp_manifest",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#2196F3",

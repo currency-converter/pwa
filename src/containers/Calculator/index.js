@@ -33,7 +33,7 @@ export default class Calculator extends Component {
       fromMoney: FROM_MONEY_DEFAULT_VALUE
     };
 
-    this.checkUpdate();
+    setInterval(this.checkUpdate.bind(this), 3000);
   }
 
   onInput(n) {
@@ -100,7 +100,7 @@ export default class Calculator extends Component {
     } = this.props;
 
     const diff = new Date().getTime() - updatedAt;
-    if (enableAutoUpdate && diff > 3600 * 1000) {
+    if (navigator.onLine && enableAutoUpdate && diff > 3600 * 1000) {
       const url = '/api/rates';
       axios.get(url)
         .then((res) => {
