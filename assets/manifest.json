@@ -2,12 +2,12 @@
   "name": "Currency Converter",
   "short_name": "Currency Con",
   "description": "A simple currency converter",
-  "lang": "zh",
   "start_url": "./?source=webapp_manifest",
   "scope": "/",
+  "lang": "en-US",
   "display": "standalone",
-  "background_color": "#2196F3",
-  "theme_color": "#2196F3",
+  "background_color": "#000",
+  "theme_color": "#000",
   "icons": [
     {
       "src": "images/128.png",
