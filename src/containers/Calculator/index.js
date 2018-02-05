@@ -20,8 +20,9 @@ export default class Calculator extends Component {
     fromCurrency: PropTypes.string.isRequired,
     toCurrency: PropTypes.string.isRequired,
     enableAutoUpdate: PropTypes.bool.isRequired,
-    enableCustomRate: PropTypes.bool.isRequired,
     updatedAt: PropTypes.number.isRequired,
+    enableCustomRate: PropTypes.bool.isRequired,
+    enableHourlyUpdate: PropTypes.bool.isRequired,
     rate: PropTypes.number.isRequired,
     decimals: PropTypes.number.isRequired
   };
@@ -95,12 +96,15 @@ export default class Calculator extends Component {
       updatedAt,
       dispatch,
       enableCustomRate,
+      enableHourlyUpdate,
       toCurrency,
       fromCurrency
     } = this.props;
 
     const diff = new Date().getTime() - updatedAt;
-    if (navigator.onLine && enableAutoUpdate && diff > 3600 * 1000) {
+    // 每小时 or 每天更新
+    const updatable = diff > (enableHourlyUpdate ? 1 : 24) * 3600 * 1000;
+    if (navigator.onLine && enableAutoUpdate && updatable) {
       const url = '/api/rates';
       axios.get(url)
         .then((res) => {
@@ -219,7 +223,7 @@ export default class Calculator extends Component {
                 <td onClick={this.onInput.bind(this, '3')}>3</td>
               </tr>
               <tr>
-                <td onClick={this.onSettingsClick.bind(this)} className="cc">A</td>
+                <td onClick={this.onSettingsClick.bind(this)} className="cc gear">A</td>
                 <td onClick={this.onInput.bind(this, '0')}>0</td>
                 <td onClick={this.onInput.bind(this, '.')}>.</td>
               </tr>

@@ -16,6 +16,7 @@ module.exports = {
     'app.settings.updatedAt': '更新于',
     'app.settings.rateFooter': '自动更新汇率能保证汇率的及时性，仅在有网环境下可用',
     'app.settings.customRate': '自定义汇率',
+    'app.settings.hourlyUpdate': '每小时更新',
     'app.currencyPicker.favorites': '收藏',
     'app.currencyPicker.allCurrencies': '所有币种',
     'app.currency.AED': '阿联酋迪拉姆',

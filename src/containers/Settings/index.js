@@ -20,6 +20,7 @@ export default class Settings extends Component {
     decimals: PropTypes.number.isRequired,
     enableAutoUpdate: PropTypes.bool.isRequired,
     enableCustomRate: PropTypes.bool.isRequired,
+    enableHourlyUpdate: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired,
     fromCurrency: PropTypes.string.isRequired,
     toCurrency: PropTypes.string.isRequired,
@@ -37,7 +38,14 @@ export default class Settings extends Component {
   onAutoUpdateClick(value) {
     const { dispatch } = this.props;
     dispatch(updateSettings({
-      enableAutoUpdate: value
+      enableAutoUpdate: value,
+      enableHourlyUpdate: false
+    }));
+  }
+
+  onHourlyUpdateClick(value) {
+    this.props.dispatch(updateSettings({
+      enableHourlyUpdate: value
     }));
   }
 
@@ -77,6 +85,7 @@ export default class Settings extends Component {
       decimals,
       enableAutoUpdate,
       enableCustomRate,
+      enableHourlyUpdate,
       fromCurrency,
       toCurrency,
       rate
@@ -95,8 +104,17 @@ export default class Settings extends Component {
                 <FormattedMessage id="app.settings.autoUpdateRates" />
                 <Switch
                   className="positionFix"
-                  defaultChecked={enableAutoUpdate}
+                  checked={enableAutoUpdate}
                   onChange={this.onAutoUpdateClick.bind(this)}
+                />
+              </div>
+              <div className="gItem">
+                <FormattedMessage id="app.settings.hourlyUpdate" />
+                <Switch
+                  className="positionFix"
+                  disabled={!enableAutoUpdate}
+                  checked={enableHourlyUpdate}
+                  onChange={this.onHourlyUpdateClick.bind(this)}
                 />
               </div>
               <div className="gItem">

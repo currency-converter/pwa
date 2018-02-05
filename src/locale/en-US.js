@@ -16,6 +16,7 @@ module.exports = {
     'app.settings.updatedAt': 'Updated at',
     'app.settings.rateFooter': 'The automatic exchange rate can guarantee the timeliness of the exchange rate and can be used only in a network environment.',
     'app.settings.customRate': 'Custom Rate',
+    'app.settings.hourlyUpdate': 'Hourly Update',
     'app.currencyPicker.favorites': 'Favorites',
     'app.currencyPicker.allCurrencies': 'All currencies',
     'app.currency.AED': 'United Arab Emirates Dirham',

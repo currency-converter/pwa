@@ -19,6 +19,7 @@ if (settings) {
     rate: 6.4363,
     enableCustomRate: false,
     enableAutoUpdate: true,
+    enableHourlyUpdate: false,
     updatedAt: 1516270561999,
     favorites: [
       'USD', 'CNY', 'JPY', 'HKD'
