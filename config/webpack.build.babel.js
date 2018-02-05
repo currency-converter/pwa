@@ -25,13 +25,13 @@ export default (webpackConfig, program, appConfig) => {
   config.plugins.push(new OfflinePlugin({
     externals: ['/'],
 
-    ServiceWorker: {
-      entry: '/Users/zhongzhi/workspace/github/currency-converter/h5/src/sw-handler.js'
+    // ServiceWorker: {
+    //   entry: '/Users/zhongzhi/workspace/github/currency-converter/h5/src/sw-handler.js'
     //   output: '../templates/sw.js',
     //   publicPath: '/sw.js',
     //   minify: false
     //   // events: true
-    },
+    // },
 
     AppCache: false
   }));
