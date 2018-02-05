@@ -9,7 +9,7 @@
     "build:beta": "NODE_ENV=beta packing build",
     "build:prod": "NODE_ENV=production packing build",
     "serve": "packing serve",
-    "serve:dist": "packing build && packing serve-dist",
+    "serve:dist": "packing serve-dist",
     "eslint": "echo '\"npm run eslint\" will be scrapped in version 3. Please use \"npm run lint\" instead' && npm run lint",
     "lint": "eslint --fix src"
   },
