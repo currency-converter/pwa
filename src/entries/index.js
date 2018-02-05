@@ -34,24 +34,7 @@ const store = createStore(reducer);
 // if (['beta', 'production'].indexOf(process.env.NODE_ENV) > -1) {
 //   OfflinePluginRuntime.install();
 // }
-OfflinePluginRuntime.install({
-  // onUpdateReady: () => {
-  //   console.log('SW Event:', 'onUpdateReady');
-  //   // runtime.applyUpdate();
-  // },
-  // onUpdated: () => {
-  //   console.log('SW Event:', 'onUpdated');
-  //   // window.swUpdate = true;
-  // }
-});
-
-navigator.serviceWorker.addEventListener('message', (event) => {
-  const { type, pathname } = event.data;
-  if (type === 1 && window.location.pathname === pathname) {
-    console.log('recv from service worker', event.data);
-    window.location.reload();
-  }
-});
+OfflinePluginRuntime.install();
 
 ReactDOM.render(
   <Provider store={store}>

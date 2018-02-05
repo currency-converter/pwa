@@ -23,16 +23,10 @@ export default (webpackConfig, program, appConfig) => {
   } = appConfig;
 
   config.plugins.push(new OfflinePlugin({
+    // 缓存首页
     externals: ['/'],
 
-    // ServiceWorker: {
-    //   entry: '/Users/zhongzhi/workspace/github/currency-converter/h5/src/sw-handler.js'
-    //   output: '../templates/sw.js',
-    //   publicPath: '/sw.js',
-    //   minify: false
-    //   // events: true
-    // },
-
+    // 禁用 appcache
     AppCache: false
   }));
 
