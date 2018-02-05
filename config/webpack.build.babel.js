@@ -60,7 +60,7 @@ export default (webpackConfig, program, appConfig) => {
   // 替换 manifest.json 中的图片
   config.plugins.push(new ReplaceHashWebpackPlugin({
     cwd: assetsDist,
-    src: 'manifest.json',
+    src: 'manifest*.json',
     dest: assetsDist,
     exts: ['png']
   }));

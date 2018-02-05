@@ -24,7 +24,7 @@ export default (packing) => {
   // 将所有 js 打成一个包
   p.commonChunks = {};
 
-  p.minimize = false;
+  // p.minimize = false;
 
   return p;
 };
