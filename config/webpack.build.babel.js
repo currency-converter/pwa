@@ -18,19 +18,20 @@ export default (webpackConfig, program, appConfig) => {
     path: {
       templates,
       assetsDist
-    } // ,
-    // fileHashLength
+    },
+    fileHashLength
   } = appConfig;
 
   config.plugins.push(new OfflinePlugin({
     externals: ['/'],
 
-    // ServiceWorker: {
+    ServiceWorker: {
+      entry: '/Users/zhongzhi/workspace/github/currency-converter/h5/src/sw-handler.js'
     //   output: '../templates/sw.js',
     //   publicPath: '/sw.js',
     //   minify: false
     //   // events: true
-    // },
+    },
 
     AppCache: false
   }));
@@ -79,11 +80,9 @@ export default (webpackConfig, program, appConfig) => {
     test: /manifest.json$/,
     loader: 'file-loader',
     options: {
-      name: '[name].[ext]'
+      name: `[name]-[hash:${fileHashLength}].[ext]`
     }
   });
-
-  // console.log(config);
 
   return config;
 };
