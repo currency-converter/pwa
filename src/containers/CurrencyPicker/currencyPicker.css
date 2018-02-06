@@ -1,3 +1,5 @@
+@import '../App/setup.css';
+
 .currencyPicker {
   position: absolute;
   top: 0;
@@ -7,6 +9,7 @@
 
   & .content {
     background-color: #fff;
+    @apply --margin-nav-height;
   }
 
   & .searchBar {

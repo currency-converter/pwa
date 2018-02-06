@@ -1,6 +1,13 @@
+:root {
+  --nav-height: 44px;
+}
+
 .nav {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: var(--nav-height);
   background-color: #f5f5f7;
-  height: 44px;
   border-bottom: 0.5px solid #a6a5ab;
 
   & button {

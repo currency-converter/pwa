@@ -1,16 +1,18 @@
+@import './setup.css';
+
 html {
   height: 100%;
 }
 
 body {
   margin:0;
-  font-family: 'Avenir';
   height: 100%;
+  @apply --text-font-family;
 }
 
 input,
 button {
-  font-family: 'Avenir';
+  @apply --text-font-family;
 }
 
 .hidden {

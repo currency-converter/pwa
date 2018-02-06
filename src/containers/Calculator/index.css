@@ -1,3 +1,7 @@
+:root {
+  --screen-height-portrait: 30%;
+  --screen-height-landscape: 41%;
+}
 
 .calculator {
   display: flex;
@@ -6,9 +10,15 @@
 
   & .screen {
     background-color: #000;
-    height: 200px;
+    height: var(--screen-height-portrait);
     color: #fff;
     position: relative;
+
+    @media (orientation: landscape) {
+      & {
+        height: var(--screen-height-landscape);
+      }
+    }
 
     & .from,
     & .to {
@@ -48,7 +58,7 @@
       text-transform: uppercase;
     }
 
-    & .message {
+    & .tips {
       font-size: 0.8rem;
       color: #666;
       text-align: right;
@@ -56,9 +66,21 @@
       position: absolute;
       top: 152px;
       width: 100%;
+      opacity: 0;
+      transition: opacity 1s linear;
+
+      &.show {
+        opacity: 1;
+      }
 
       & p {
         padding-right: 1rem;
+      }
+
+      @media (orientation: landscape) {
+        & {
+          display: none;
+        }
       }
     }
   }
@@ -66,7 +88,13 @@
   & .keyboard {
     display: flex;
     flex: 1;
-    height: calc(100% - 200px);
+    height: calc(100% - var(--screen-height-portrait));
+
+    @media (orientation: landscape) {
+      & {
+        height: calc(100% - var(--screen-height-landscape));;
+      }
+    }
 
     & table {
       width: 100%;

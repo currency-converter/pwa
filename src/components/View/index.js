@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 import './view.css';
 
+const TRANSITION_DURATION = 300; // ms
+
 @connect()
 export default class View extends Component {
   static propTypes = {
@@ -19,15 +21,17 @@ export default class View extends Component {
     className: '',
     in: false,
     children: null,
-    duration: 300,
+    duration: TRANSITION_DURATION,
     defaultStyle: {
-      transition: 'top 300ms ease-in-out',
+      transitionProperty: 'top,opacity',
+      transitionDuration: `${TRANSITION_DURATION}ms`,
+      transitionTimingFunction: 'ease-in-out',
       top: '100%',
       display: 'none'
     },
     transitionStyle: {
-      entering: { top: '100%' },
-      entered: { top: 0 }
+      entering: { top: '100%', opacity: 0 },
+      entered: { top: 0, opacity: 1 }
     }
   };
 
@@ -54,6 +58,7 @@ export default class View extends Component {
           });
         }, 100);
       } else {
+        window.scrollTo(0, 0);
         this.setState({
           style: {
             ...this.state.style,
