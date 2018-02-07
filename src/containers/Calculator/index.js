@@ -27,7 +27,6 @@ export default class Calculator extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props);
 
     this.state = {
       fromMoney: (1).toFixed(this.props.decimals),
@@ -210,7 +209,7 @@ export default class Calculator extends Component {
             <div className="money" style={fromMoneyStyle}>
               <span>{fromMoney}</span>
             </div>
-            <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'from')}>{fromCurrency}</div>
+            <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'from')}>{fromCurrency}11</div>
           </div>
           <div className="to">
             <div className="money" style={toMoneyStyle}>
