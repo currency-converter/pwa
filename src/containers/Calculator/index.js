@@ -42,7 +42,7 @@ export default class Calculator extends Component {
       this.setState({
         showTips: false
       });
-    }, 6 * 1000);
+    }, 60 * 1000);
   }
 
   onInput(n) {
