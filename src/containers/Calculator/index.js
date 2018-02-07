@@ -209,7 +209,7 @@ export default class Calculator extends Component {
             <div className="money" style={fromMoneyStyle}>
               <span>{fromMoney}</span>
             </div>
-            <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'from')}>{fromCurrency}11</div>
+            <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'from')}>{fromCurrency}</div>
           </div>
           <div className="to">
             <div className="money" style={toMoneyStyle}>
