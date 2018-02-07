@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage, FormattedRelative, FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedRelative } from 'react-intl';
 import axios from 'axios';
 import cx from 'classnames';
 import { updateSettings } from '../../actions';
@@ -203,20 +203,18 @@ export default class Calculator extends Component {
       };
     }
 
-    const numberFormatOptions = { style: 'currency' };
-
     return (
       <section className="calculator">
         <div className="screen">
           <div className="from">
             <div className="money" style={fromMoneyStyle}>
-              <FormattedNumber value={fromMoney} {...numberFormatOptions} />
+              <span>{fromMoney}</span>
             </div>
             <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'from')}>{fromCurrency}</div>
           </div>
           <div className="to">
             <div className="money" style={toMoneyStyle}>
-              <FormattedNumber value={toMoney} {...numberFormatOptions} />
+              <span>{toMoney}</span>
             </div>
             <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'to')}>
               {toCurrency}
