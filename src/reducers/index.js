@@ -8,6 +8,7 @@ if (settings) {
   initialState = JSON.parse(settings);
   initialState.showSettings = false;
   initialState.showCurrencyPicker = false;
+  initialState.suggestInputting = false;
 } else {
   initialState = {
     showSettings: false,

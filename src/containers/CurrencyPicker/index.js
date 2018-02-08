@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import cx from 'classnames';
 import View from '../../components/View';
 import Nav from '../../components/Nav';
+import Suggest from '../../components/Suggest';
 import { updateSettings, toggleFavorite } from '../../actions';
 import { toFixed } from '../../util';
 import './currencyPicker.css';
@@ -19,7 +20,12 @@ export default class CurrencyPicker extends Component {
     dispatch: PropTypes.func.isRequired,
     fromCurrency: PropTypes.string.isRequired,
     toCurrency: PropTypes.string.isRequired,
-    rates: PropTypes.object.isRequired
+    rates: PropTypes.object.isRequired,
+    suggestInputting: PropTypes.bool
+  };
+
+  static defaultProps = {
+    suggestInputting: false
   };
 
   shouldComponentUpdate() {
@@ -61,6 +67,18 @@ export default class CurrencyPicker extends Component {
     this.forceUpdate();
   }
 
+  onSuggestFocus() {
+    this.props.dispatch(updateSettings({
+      suggestInputting: true
+    }));
+  }
+
+  onSuggestCancel() {
+    this.props.dispatch(updateSettings({
+      suggestInputting: false
+    }));
+  }
+
   renderList(currencies) {
     const {
       favorites,
@@ -93,15 +111,28 @@ export default class CurrencyPicker extends Component {
     const {
       showCurrencyPicker,
       favorites,
-      allCurrencies
+      allCurrencies,
+      suggestInputting
     } = this.props;
 
     return (
-      <View className="currencyPicker" in={showCurrencyPicker}>
-        <Nav closeLabel="cancel" closeEvent={this.onCloseClick.bind(this)} />
+      <View className={cx('currencyPicker', { inputMode: suggestInputting })} in={showCurrencyPicker}>
+        <Nav
+          hidden={suggestInputting}
+          closeLabel="cancel"
+          closeEvent={::this.onCloseClick}
+        />
         <div className="content">
           <div className="searchBar">
-            <input type="search" placehold="Search" />
+            <Suggest
+              placeholder="Search"
+              suggestions={allCurrencies}
+              onFocus={::this.onSuggestFocus}
+              onCancel={::this.onSuggestCancel}
+              onChoose={::this.onPicker}
+              onStar={::this.onStarClick}
+              favorites={favorites}
+            />
           </div>
           <div className="favorites group">
             <div className="title">

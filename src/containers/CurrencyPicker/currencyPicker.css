@@ -9,6 +9,7 @@
 
   & .content {
     background-color: #fff;
+    transition: margin 300ms;
     @apply --margin-nav-height;
   }
 
@@ -51,6 +52,16 @@
         width: 4rem;
         font-weight: bold;
       }
+    }
+  }
+
+  &.inputMode {
+    & .content {
+      margin-top: 0;
+    }
+
+    & .searchBar {
+      padding: 3px 0;
     }
   }
 }
