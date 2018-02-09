@@ -1,5 +1,5 @@
 :root {
-  --screen-height-portrait: 30%;
+  --screen-height-portrait: 180px;
   --screen-height-landscape: 41%;
 }
 
@@ -13,6 +13,7 @@
     height: var(--screen-height-portrait);
     color: #fff;
     position: relative;
+    padding-top: 20px;
 
     @media (orientation: landscape) {
       & {
@@ -25,23 +26,22 @@
       position: absolute;
       display: flex;
       align-items: center;
-      height: 76px;
       width: 100%;
     }
 
     & .from {
-      top: 0;
+      top: 20px;
 
       &.down {
-        top: 77px;
+        top: 86px;
       }
     }
 
     & .to {
-      top: 77px;
+      top: 86px;
 
       &.up {
-        top: 0;
+        top: 20px;
       }
     }
 

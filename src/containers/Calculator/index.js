@@ -31,7 +31,9 @@ export default class Calculator extends Component {
     this.state = {
       fromMoney: (1).toFixed(this.props.decimals),
       isEmpty: true,
-      showTips: true
+      showTips: true,
+      touchStart: {},
+      currencySwapping: false
     };
 
     // 检查汇率更新
@@ -115,6 +117,55 @@ export default class Calculator extends Component {
     }));
   }
 
+  screenTouchStart(event) {
+    this.setState({
+      touchStart: {
+        x: event.touches[0].clientX,
+        y: event.touches[0].clientY,
+        time: new Date().getTime()
+      }
+    });
+  }
+
+  noBounce(event) {
+    // 避免页面跟着一起滚动
+    event.preventDefault();
+  }
+
+  screenTouchEnd(event) {
+    const { touchStart: { x, y, time } } = this.state;
+    const width = Math.abs(event.changedTouches[0].clientX - x);
+    const height = Math.abs(event.changedTouches[0].clientY - y);
+    const distance = Math.abs(width - height);
+    const duration = new Date().getTime() - time;
+
+    if (duration < 500 && distance > 20) {
+      if (width > height) {
+        console.log('x');
+      } else {
+        console.log('y');
+        this.setState({ currencySwapping: true });
+
+        setTimeout(() => {
+          const {
+            fromCurrency,
+            toCurrency,
+            rate,
+            dispatch
+          } = this.props;
+
+          dispatch(updateSettings({
+            fromCurrency: toCurrency,
+            toCurrency: fromCurrency,
+            rate: toFixed(1 / rate, 5)
+          }));
+
+          this.setState({ currencySwapping: false });
+        }, 200);
+      }
+    }
+  }
+
   checkUpdate() {
     const {
       enableAutoUpdate,
@@ -159,7 +210,12 @@ export default class Calculator extends Component {
       updatedAt,
       enableCustomRate
     } = this.props;
-    const { fromMoney, showTips } = this.state;
+
+    const {
+      fromMoney,
+      showTips,
+      currencySwapping
+    } = this.state;
 
     // 根据汇率计算兑换后的货币数目
     const toMoney = this.exchange(fromMoney);
@@ -202,20 +258,30 @@ export default class Calculator extends Component {
       };
     }
 
+    const swapStyles = {};
+    if (currencySwapping) {
+      swapStyles.transition = 'top 0.2s linear';
+    }
+
     return (
       <section className="calculator">
-        <div className="screen">
-          <div className="from">
+        <div
+          className="screen"
+          onTouchStart={e => this.screenTouchStart(e)}
+          onTouchEnd={e => this.screenTouchEnd(e)}
+          onTouchMove={e => this.noBounce(e)}
+        >
+          <div className={cx('from', { down: currencySwapping })} style={swapStyles}>
             <div className="money" style={fromMoneyStyle}>
               <span>{fromMoney}</span>
             </div>
-            <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'from')}>{fromCurrency}</div>
+            <div className="abbreviation" onClick={e => this.onCurrencyPickerClick('from', e)}>{fromCurrency}</div>
           </div>
-          <div className="to">
+          <div className={cx('to', { up: currencySwapping })} style={swapStyles}>
             <div className="money" style={toMoneyStyle}>
               <span>{toMoney}</span>
             </div>
-            <div className="abbreviation" onClick={this.onCurrencyPickerClick.bind(this, 'to')}>
+            <div className="abbreviation" onClick={e => this.onCurrencyPickerClick('to', e)}>
               {toCurrency}
               { enableCustomRate && (<sup>*</sup>) }
             </div>
@@ -228,7 +294,7 @@ export default class Calculator extends Component {
             </p>
           </div>
         </div>
-        <div className="keyboard">
+        <div className="keyboard" onTouchMove={e => this.noBounce(e)}>
           <table>
             <tbody>
               <tr>

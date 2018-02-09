@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import cx from 'classnames';
 import View from '../../components/View';
 import Nav from '../../components/Nav';
@@ -11,7 +11,7 @@ import { toFixed } from '../../util';
 import './currencyPicker.css';
 
 @connect(state => state)
-export default class CurrencyPicker extends Component {
+class CurrencyPicker extends Component {
   static propTypes = {
     showCurrencyPicker: PropTypes.bool.isRequired,
     favorites: PropTypes.array.isRequired,
@@ -21,7 +21,8 @@ export default class CurrencyPicker extends Component {
     fromCurrency: PropTypes.string.isRequired,
     toCurrency: PropTypes.string.isRequired,
     rates: PropTypes.object.isRequired,
-    suggestInputting: PropTypes.bool
+    suggestInputting: PropTypes.bool,
+    intl: intlShape.isRequired
   };
 
   static defaultProps = {
@@ -112,7 +113,8 @@ export default class CurrencyPicker extends Component {
       showCurrencyPicker,
       favorites,
       allCurrencies,
-      suggestInputting
+      suggestInputting,
+      intl: { formatMessage }
     } = this.props;
 
     return (
@@ -125,7 +127,8 @@ export default class CurrencyPicker extends Component {
         <div className="content">
           <div className="searchBar">
             <Suggest
-              placeholder="Search"
+              placeholder={formatMessage({ id: 'app.currencyPicker.search' })}
+              cancelLabel={formatMessage({ id: 'app.currencyPicker.cancel' })}
               suggestions={allCurrencies}
               onFocus={::this.onSuggestFocus}
               onCancel={::this.onSuggestCancel}
@@ -151,3 +154,5 @@ export default class CurrencyPicker extends Component {
     );
   }
 }
+
+export default injectIntl(CurrencyPicker);

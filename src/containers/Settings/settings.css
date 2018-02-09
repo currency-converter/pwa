@@ -61,10 +61,5 @@
     width: 4rem;
     outline: none;
     border: none;
-
-    &:disabled {
-      color: #999;
-      background-color: transparent;
-    }
   }
 }

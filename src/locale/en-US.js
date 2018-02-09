@@ -19,6 +19,8 @@ module.exports = {
     'app.settings.hourlyUpdate': 'Hourly Update',
     'app.currencyPicker.favorites': 'Favorites',
     'app.currencyPicker.allCurrencies': 'All currencies',
+    'app.currencyPicker.search': 'Search',
+    'app.currencyPicker.cancel': 'Cancel',
     'app.currency.AED': 'United Arab Emirates Dirham',
     'app.currency.AUD': 'Australian Dollar',
     'app.currency.BGN': 'Bulgarian Lev',

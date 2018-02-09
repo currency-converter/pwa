@@ -19,6 +19,8 @@ module.exports = {
     'app.settings.hourlyUpdate': '每小时更新',
     'app.currencyPicker.favorites': '收藏',
     'app.currencyPicker.allCurrencies': '所有币种',
+    'app.currencyPicker.search': '搜索',
+    'app.currencyPicker.cancel': '取消',
     'app.currency.AED': '阿联酋迪拉姆',
     'app.currency.AUD': '澳元',
     'app.currency.BGN': '保加利亚列弗',
