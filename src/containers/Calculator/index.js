@@ -36,7 +36,10 @@ export default class Calculator extends Component {
       currencySwapping: false
     };
 
-    // 检查汇率更新
+    // 进入页面1分钟后检查汇率更新
+    setTimeout(this.checkUpdate.bind(this), 60 * 1000);
+
+    // 之后每小时检查汇率更新
     setInterval(this.checkUpdate.bind(this), 3600 * 1000);
 
     // 汇率更新信息显示60秒后隐藏
