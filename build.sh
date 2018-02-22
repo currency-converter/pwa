@@ -24,7 +24,7 @@ else
   # 选择 node 编译类型时，jenkins 会自动安装依赖
   # 为了确保依赖包成功安装，此处再检查一下 packing 依赖包是否安装
   if [ ! -d node_modules/packing ]; then
-    npm install --production --registry http://registry.npm.corp.qunar.com
+    npm install --production --registry https://registry.npm.taobao.org
   fi
 
   # 开始编译工程
