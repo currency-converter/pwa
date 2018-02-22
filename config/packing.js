@@ -17,6 +17,7 @@ export default (packing) => {
   p.rewriteRules = {
     // 网站URL与模版的对应路由关系
     '^/$': '/index.html',
+    // '^/manifest.json': 'require!/mock/manifest.js',
     // API转发
     '^/api/(.*)': 'require!/mock/api/$1.js'
   };

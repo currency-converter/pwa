@@ -3,6 +3,7 @@ module.exports = {
     'eslint-config-qunar'
   ].map(require.resolve),
   rules: {
+    'valid-jsdoc': 2,
     complexity: 0,
     'react/jsx-no-bind': 0,
     'react/forbid-prop-types': 0,

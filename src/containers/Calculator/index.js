@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage, FormattedRelative } from 'react-intl';
+import { FormattedMessage, FormattedRelative, injectIntl, intlShape } from 'react-intl';
 import axios from 'axios';
 import cx from 'classnames';
 import { updateSettings } from '../../actions';
@@ -12,7 +12,7 @@ import './index.css';
 const FROM_MONEY_MAX_LENGTH = 15;
 
 @connect(state => state)
-export default class Calculator extends Component {
+class Calculator extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     fromCurrency: PropTypes.string.isRequired,
@@ -22,7 +22,8 @@ export default class Calculator extends Component {
     enableCustomRate: PropTypes.bool.isRequired,
     enableHourlyUpdate: PropTypes.bool.isRequired,
     rate: PropTypes.number.isRequired,
-    decimals: PropTypes.number.isRequired
+    decimals: PropTypes.number.isRequired,
+    intl: intlShape.isRequired
   };
 
   constructor(props) {
@@ -48,6 +49,16 @@ export default class Calculator extends Component {
         showTips: false
       });
     }, 60 * 1000);
+  }
+
+  componentDidMount() {
+    const { formatMessage } = this.props.intl;
+    // i18n: 修改网页 title 及添加到 iOS 主屏幕时的标题
+    const title = formatMessage({ id: 'app.name' });
+    document.title = title;
+    document
+      .querySelector('meta[name="apple-mobile-web-app-title"]')
+      .content = title;
   }
 
   onInput(n) {
@@ -328,3 +339,5 @@ export default class Calculator extends Component {
     );
   }
 }
+
+export default injectIntl(Calculator);

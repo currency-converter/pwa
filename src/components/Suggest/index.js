@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
 import cx from 'classnames';
 import './suggest.css';
 
@@ -104,22 +103,29 @@ export default class Nav extends Component {
           isFocus && (
             <div className={cx('suggest-suggestions', 'group', { hidden: !value })}>
               {
-                suggestions.filter(s => s.indexOf(value.toUpperCase()) > -1).map((s) => {
-                  const starIcon = favorites.indexOf(s) < 0 ? 'C' : 'B';
-                  return (
-                    <div
-                      key={`currency-${s}`}
-                      className={cx('item')}
-                      onClick={this.onChoose.bind(this, s)}
-                    >
-                      <div className="star cc" onClick={this.onStar.bind(this, s)}>{starIcon}</div>
-                      <div className="name">{s}</div>
-                      <div className="fullname">
-                        <FormattedMessage id={`app.currency.${s}`} />
+                suggestions
+                  .filter((s) => {
+                    const keyword = value.toUpperCase();
+                    const { code, text } = s;
+                    return code.indexOf(keyword) > -1 || text.toUpperCase().indexOf(keyword) > -1;
+                  })
+                  .map((s) => {
+                    const { code, text } = s;
+                    const starIcon = favorites.indexOf(code) < 0 ? 'C' : 'B';
+                    return (
+                      <div
+                        key={`currency-${code}`}
+                        className={cx('item')}
+                        onClick={this.onChoose.bind(this, code)}
+                      >
+                        <div className="star cc" onClick={this.onStar.bind(this, code)}>{starIcon}</div>
+                        <div className="name">{code}</div>
+                        <div className="fullname">
+                          <span>{text}</span>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })
+                    );
+                  })
               }
             </div>
           )

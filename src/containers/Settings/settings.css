@@ -23,6 +23,10 @@
     font-size: 0.8rem;
   }
 
+  & .gHeader {
+    text-transform: uppercase;
+  }
+
   & .gBody {
     background-color: #fff;
     border: 0.5px solid #c9c9c9;
@@ -53,7 +57,7 @@
   }
 
   & .positionFix {
-    margin-top: 9px;
+    margin-top: 5px;
   }
 
   & .customRateInput {
@@ -61,5 +65,9 @@
     width: 4rem;
     outline: none;
     border: none;
+  }
+
+  & .useProtocol {
+    padding: 0 10px;
   }
 }

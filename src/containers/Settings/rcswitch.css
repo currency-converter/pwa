@@ -2,9 +2,9 @@
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  width: 44px;
-  height: 22px;
-  line-height: 20px;
+  width: 50px;
+  height: 30px;
+  line-height: 28px;
   vertical-align: middle;
   border-radius: 20px 20px;
   border: 1px solid #ccc;
@@ -20,9 +20,9 @@
 }
 .rc-switch:after {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  left: 2px;
+  width: 26px;
+  height: 26px;
+  left: 1px;
   top: 1px;
   border-radius: 50% 50%;
   background-color: #fff;
@@ -57,7 +57,7 @@
   left: 6px;
 }
 .rc-switch-checked:after {
-  left: 22px;
+  left: 21px;
 }
 .rc-switch-disabled {
   cursor: no-drop;

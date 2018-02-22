@@ -28,12 +28,7 @@ export default (webpackConfig, program, appConfig) => {
 
   config.plugins.push(new HtmlWebpackPlugin({
     title: 'Currency Converter',
-    template: `${templates}/index.html`,
-    // filename: '../templates/index.html',
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true
-    }
+    template: `${templates}/index.html`
   }));
 
   return config;

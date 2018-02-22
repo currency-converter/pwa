@@ -117,6 +117,11 @@ class CurrencyPicker extends Component {
       intl: { formatMessage }
     } = this.props;
 
+    const suggestions = allCurrencies.map(currency => ({
+      code: currency,
+      text: formatMessage({ id: `app.currency.${currency}` })
+    }));
+
     return (
       <View className={cx('currencyPicker', { inputMode: suggestInputting })} in={showCurrencyPicker}>
         <Nav
@@ -129,7 +134,7 @@ class CurrencyPicker extends Component {
             <Suggest
               placeholder={formatMessage({ id: 'app.currencyPicker.search' })}
               cancelLabel={formatMessage({ id: 'app.currencyPicker.cancel' })}
-              suggestions={allCurrencies}
+              suggestions={suggestions}
               onFocus={::this.onSuggestFocus}
               onCancel={::this.onSuggestCancel}
               onChoose={::this.onPicker}

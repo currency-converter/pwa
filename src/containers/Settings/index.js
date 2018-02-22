@@ -101,6 +101,10 @@ export default class Settings extends Component {
             </div>
             <div className="gBody">
               <div className="gItem">
+                <FormattedMessage id="app.settings.updatedAt" />
+                <FormattedRelative value={updatedAt} />
+              </div>
+              <div className="gItem">
                 <FormattedMessage id="app.settings.autoUpdateRates" />
                 <Switch
                   className="positionFix"
@@ -117,33 +121,9 @@ export default class Settings extends Component {
                   onChange={this.onHourlyUpdateClick.bind(this)}
                 />
               </div>
-              <div className="gItem">
-                <FormattedMessage id="app.settings.updatedAt" />
-                <FormattedRelative value={updatedAt} />
-              </div>
             </div>
             <div className="gFooter">
               <FormattedMessage id="app.settings.rateFooter" />
-            </div>
-          </div>
-          <div className="groupList">
-            <div className="gHeader">
-              <FormattedMessage id="app.settings.decimalsTitle" />
-            </div>
-            <div className="gBody">
-              <div className="gItem">
-                <span>
-                  {`${decimals} `}
-                  <FormattedMessage id="app.settings.decimals" />
-                </span>
-                <SpinButton
-                  step={1}
-                  min={0}
-                  max={5}
-                  value={decimals}
-                  onChange={this.onDecimalsChange.bind(this)}
-                />
-              </div>
             </div>
           </div>
           <div className="groupList">
@@ -172,6 +152,29 @@ export default class Settings extends Component {
               </div>
             </div>
           </div>
+          <div className="groupList">
+            <div className="gBody">
+              <div className="gItem">
+                <span>
+                  {`${decimals} `}
+                  <FormattedMessage id="app.settings.decimals" />
+                </span>
+                <SpinButton
+                  step={1}
+                  min={0}
+                  max={5}
+                  value={decimals}
+                  onChange={this.onDecimalsChange.bind(this)}
+                />
+              </div>
+            </div>
+            <div className="gFooter">
+              <FormattedMessage id="app.settings.decimalsFooter" />
+            </div>
+          </div>
+          <p className="useProtocol">
+            <FormattedMessage id="app.settings.useProtocol" />
+          </p>
         </div>
       </View>
     );
