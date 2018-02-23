@@ -315,7 +315,7 @@ class Calculator extends Component {
                 <td onClick={this.onInput.bind(this, '7')}>7</td>
                 <td onClick={this.onInput.bind(this, '8')}>8</td>
                 <td onClick={this.onInput.bind(this, '9')}>9</td>
-                <td rowSpan="4" className="clean" onClick={this.onInput.bind(this, 'c')}>C</td>
+                <td rowSpan="4" className="clean" onClick={this.onInput.bind(this, 'c')}>{navigator.language}C</td>
               </tr>
               <tr>
                 <td onClick={this.onInput.bind(this, '4')}>4</td>
