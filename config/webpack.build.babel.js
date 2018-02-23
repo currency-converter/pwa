@@ -24,10 +24,10 @@ export default (webpackConfig, program, appConfig) => {
 
   config.plugins.push(new OfflinePlugin({
     // 缓存首页
-    externals: ['/'] // ,
+    externals: ['/'],
 
     // 禁用 appcache
-    // AppCache: false
+    AppCache: false
   }));
 
   // 删除原有的 ReplaceHashPlugin
