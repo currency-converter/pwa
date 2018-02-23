@@ -1,3 +1,5 @@
+/* eslint no-fallthrough: 0 */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
@@ -12,9 +14,31 @@ import '../../assets/images/logo/512.png';
 
 let lang;
 switch (navigator.language) {
+  // 以下使用简体中文
+  // Chinese
+  case 'zh':
+  // 简体
+  case 'zh-Hans':
+  // 中华人民共和国
   case 'zh-CN':
+  // 新加坡
+  case 'zh-SG':
     lang = 'zh-CN';
     break;
+
+  // 以下使用繁体中文
+  // 繁体
+  case 'zh-Hant':
+  // 香港
+  case 'zh-HK':
+  // 澳门
+  case 'zh-MO':
+  // 台湾
+  case 'zh-TW':
+    lang = 'zh-TW';
+    break;
+
+  // 其他地区使用英文
   default:
     lang = 'en-US';
 }
