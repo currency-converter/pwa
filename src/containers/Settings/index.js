@@ -173,7 +173,7 @@ export default class Settings extends Component {
             </div>
           </div>
           <p className="useProtocol">
-            <FormattedMessage id="app.settings.useProtocol" />
+            <FormattedMessage id="app.settings.disclaimer" />
           </p>
         </div>
       </View>

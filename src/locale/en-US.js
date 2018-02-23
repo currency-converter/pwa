@@ -20,7 +20,7 @@ module.exports = {
     'app.settings.rateFooter': 'Auto update to the latest exchange rate.',
     'app.settings.customRate': 'Using a Custom Exchange Rate',
     'app.settings.hourlyUpdate': 'Update Every Hour',
-    'app.settings.useProtocol': 'The data presented in this app is intended for informational purposes only. There is no guarantee of accuracy, validity, availability, or fitness for any purpose. Use at your own risk.',
+    'app.settings.disclaimer': 'The data presented in this app is intended for informational purposes only. There is no guarantee of accuracy, validity, availability, or fitness for any purpose. Use at your own risk.',
     'app.currencyPicker.favorites': 'Favorites',
     'app.currencyPicker.allCurrencies': 'All currencies',
     'app.currencyPicker.search': 'Search',

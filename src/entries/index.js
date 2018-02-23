@@ -38,6 +38,11 @@ switch (navigator.language) {
     lang = 'zh-TW';
     break;
 
+  // 日文
+  case 'ja':
+    lang = 'ja';
+    break;
+
   // 其他地区使用英文
   default:
     lang = 'en-US';
