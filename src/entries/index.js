@@ -39,7 +39,7 @@ switch (navigator.language) {
     break;
 
   // 日文
-  case 'ja':
+  case 'ja-JP':
     lang = 'ja';
     break;
 
