@@ -27,7 +27,7 @@ export default (webpackConfig, program, appConfig) => {
   });
 
   config.plugins.push(new HtmlWebpackPlugin({
-    title: 'Currency Converter',
+    title: 'Currency Calculator',
     template: `${templates}/index.html`
   }));
 
