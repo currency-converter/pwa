@@ -14,7 +14,7 @@ module.exports = {
     'app.settings.done': 'Done',
     'app.settings.decimalsFooter': 'The Decimals of the calculation results',
     'app.settings.decimals': 'Decimals',
-    'app.settings.rateTitle': 'Exchange Rate',
+    'app.settings.rateTitle': 'Exchange Rates',
     'app.settings.autoUpdateRates': 'Auto Update Exchange Rates',
     'app.settings.updatedAt': 'Updated',
     'app.settings.rateFooter': 'Auto update to the latest exchange rate.',

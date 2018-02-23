@@ -13,7 +13,6 @@ import '../../assets/images/logo/256.png';
 import '../../assets/images/logo/512.png';
 
 let lang;
-alert(navigator.language);
 switch (navigator.language) {
   // 以下使用简体中文
   // Chinese
@@ -36,7 +35,7 @@ switch (navigator.language) {
   case 'zh-MO':
   // 台湾
   case 'zh-TW':
-    lang = 'zh-TW';
+    lang = 'zh-Hant';
     break;
 
   // 日文

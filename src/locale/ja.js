@@ -1,4 +1,4 @@
-import appLocaleData from 'react-intl/locale-data/zh';
+import appLocaleData from 'react-intl/locale-data/ja';
 
 module.exports = {
   locale: 'ja',

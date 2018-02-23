@@ -1,7 +1,7 @@
 import appLocaleData from 'react-intl/locale-data/zh';
 
 module.exports = {
-  locale: 'zh-TW',
+  locale: 'zh-Hant',
   data: appLocaleData,
   messages: {
     'app.name': '貨幣換算器',
