@@ -4,9 +4,9 @@ module.exports = {
   locale: 'en-US',
   data: appLocaleData,
   messages: {
-    'app.name': 'Currency Calculator',
-    'app.shortName': 'Currency Calc',
-    'app.description': 'A simple currency calculator',
+    'app.name': 'Currency Converter',
+    'app.shortName': 'Currency Converter',
+    'app.description': 'A simple currency converter',
     'app.nav.cancel': 'Cancel',
     'app.nav.done': 'Done',
     'app.calculator.updatedAt': 'Updated',

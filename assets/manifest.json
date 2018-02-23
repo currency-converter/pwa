@@ -1,7 +1,7 @@
 {
-  "name": "Currency Calculator",
-  "short_name": "Currency Calculator",
-  "description": "A simple currency calculator",
+  "name": "Currency Converter",
+  "short_name": "Currency Converter",
+  "description": "A simple currency converter",
   "start_url": "./?source=webapp_manifest",
   "scope": "/",
   "lang": "en-US",

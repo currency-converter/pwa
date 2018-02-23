@@ -40,7 +40,7 @@ export default (webpackConfig, program, appConfig) => {
     .filter(plugin => uselessPlugins.indexOf(plugin.constructor.name) < 0);
 
   config.plugins.push(new HtmlWebpackPlugin({
-    title: 'Currency Calculator',
+    title: 'Currency Converter',
     template: `${templates}/index.html`,
     // filename: '../templates/index.html',
     minify: {
