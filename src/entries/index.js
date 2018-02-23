@@ -13,6 +13,7 @@ import '../../assets/images/logo/256.png';
 import '../../assets/images/logo/512.png';
 
 let lang;
+alert(navigator.language);
 switch (navigator.language) {
   // 以下使用简体中文
   // Chinese
