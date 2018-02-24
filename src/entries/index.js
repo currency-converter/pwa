@@ -12,41 +12,25 @@ import '../../assets/images/logo/128.png';
 import '../../assets/images/logo/256.png';
 import '../../assets/images/logo/512.png';
 
-let lang;
-switch (navigator.language) {
-  // 以下使用简体中文
-  // Chinese
-  case 'zh':
-  // 简体
-  case 'zh-Hans':
-  // 中华人民共和国
-  case 'zh-CN':
-  // 新加坡
-  case 'zh-SG':
-    lang = 'zh-CN';
-    break;
 
-  // 以下使用繁体中文
-  // 繁体
-  case 'zh-Hant':
-  // 香港
-  case 'zh-HK':
-  // 澳门
-  case 'zh-MO':
-  // 台湾
-  case 'zh-TW':
-    lang = 'zh-Hant';
+const checkLang = lang => new RegExp(`^${lang}`, 'i').test(navigator.language);
+const checkHant = () => /hant|hk|mo|tw/i.test(navigator.language);
+
+let lang;
+switch (true) {
+  // 中文
+  case checkLang('zh'):
+    lang = `zh-${checkHant() ? 'TW' : 'CN'}`;
     break;
 
   // 日文
-  case 'ja':
-  case 'ja-JP':
+  case checkLang('ja'):
     lang = 'ja';
     break;
 
   // 其他地区使用英文
   default:
-    lang = 'en-US';
+    lang = 'en';
 }
 
 // eslint-disable-next-line
