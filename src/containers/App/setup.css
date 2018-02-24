@@ -1,12 +1,4 @@
 :root {
   /* 顶部导航条高度 */
   --nav-height: 44px;
-  --margin-nav-height: {
-    margin-top: var(--nav-height);
-  }
-
-  /* 通用字体 */
-  --text-font-family: {
-    font-family: 'Avenir';
-  }
 }

@@ -1,5 +1,5 @@
 :root {
-  --screen-height-portrait: 180px;
+  --screen-height-portrait: 200px;
   --screen-height-landscape: 41%;
 }
 
@@ -13,7 +13,6 @@
     height: var(--screen-height-portrait);
     color: #fff;
     position: relative;
-    padding-top: 20px;
 
     @media (orientation: landscape) {
       & {
@@ -35,6 +34,16 @@
       &.down {
         top: 86px;
       }
+
+      @media (orientation: landscape) {
+        & {
+          top: 10px;
+        }
+
+        &.down {
+          top: 76px;
+        }
+      }
     }
 
     & .to {
@@ -42,6 +51,16 @@
 
       &.up {
         top: 20px;
+      }
+
+      @media (orientation: landscape) {
+        & {
+          top: 76px;
+        }
+
+        &.up {
+          top: 10px;
+        }
       }
     }
 

@@ -9,7 +9,7 @@
   height: 100%;
 
   & .content {
-    @apply --margin-nav-height;
+    margin-top: var(--nav-height);
   }
 
   & .groupList {

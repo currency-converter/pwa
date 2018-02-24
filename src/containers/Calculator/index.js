@@ -37,8 +37,8 @@ class Calculator extends Component {
       currencySwapping: false
     };
 
-    // 进入页面1分钟后检查汇率更新
-    setTimeout(this.checkUpdate.bind(this), 60 * 1000);
+    // 进入页面30秒后检查汇率更新
+    setTimeout(this.checkUpdate.bind(this), 30 * 1000);
 
     // 之后每小时检查汇率更新
     setInterval(this.checkUpdate.bind(this), 3600 * 1000);
@@ -153,30 +153,25 @@ class Calculator extends Component {
     const distance = Math.abs(width - height);
     const duration = new Date().getTime() - time;
 
-    if (duration < 500 && distance > 20) {
-      if (width > height) {
-        console.log('x');
-      } else {
-        console.log('y');
-        this.setState({ currencySwapping: true });
+    if (duration < 500 && distance > 20 && width < height) {
+      this.setState({ currencySwapping: true });
 
-        setTimeout(() => {
-          const {
-            fromCurrency,
-            toCurrency,
-            rate,
-            dispatch
-          } = this.props;
+      setTimeout(() => {
+        const {
+          fromCurrency,
+          toCurrency,
+          rate,
+          dispatch
+        } = this.props;
 
-          dispatch(updateSettings({
-            fromCurrency: toCurrency,
-            toCurrency: fromCurrency,
-            rate: toFixed(1 / rate, 5)
-          }));
+        dispatch(updateSettings({
+          fromCurrency: toCurrency,
+          toCurrency: fromCurrency,
+          rate: toFixed(1 / rate, 5)
+        }));
 
-          this.setState({ currencySwapping: false });
-        }, 200);
-      }
+        this.setState({ currencySwapping: false });
+      }, 200);
     }
   }
 
@@ -315,7 +310,7 @@ class Calculator extends Component {
                 <td onClick={this.onInput.bind(this, '7')}>7</td>
                 <td onClick={this.onInput.bind(this, '8')}>8</td>
                 <td onClick={this.onInput.bind(this, '9')}>9</td>
-                <td rowSpan="4" className="clean" onClick={this.onInput.bind(this, 'c')}>{navigator.language}C</td>
+                <td rowSpan="4" className="clean" onClick={this.onInput.bind(this, 'c')}>C</td>
               </tr>
               <tr>
                 <td onClick={this.onInput.bind(this, '4')}>4</td>

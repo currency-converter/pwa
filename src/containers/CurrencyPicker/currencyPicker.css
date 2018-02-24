@@ -10,7 +10,7 @@
   & .content {
     background-color: #fff;
     transition: margin 300ms;
-    @apply --margin-nav-height;
+    margin-top: var(--nav-height);
   }
 
   & .searchBar {

@@ -7,12 +7,12 @@ html {
 body {
   margin:0;
   height: 100%;
-  @apply --text-font-family;
+  font-family: 'Avenir';
 }
 
 input,
 button {
-  @apply --text-font-family;
+  font-family: 'Avenir';
 }
 
 .hidden {

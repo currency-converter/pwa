@@ -3,26 +3,31 @@
   /* position: relative; */
 
   & .suggest-input {
+    position: relative;
     display: flex;
     padding: 5px;
+
+    &:before {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      content: 'D';
+      font-family: 'cc';
+      left: 12px;
+      top: 9px;
+      color: #666;
+    }
 
     & .keyword {
       width: 100%;
       border-radius: 5px;
       outline: none;
       border: none;
-      padding: 3px 3px 3px 10px;
+      padding: 3px 3px 3px 24px;
       font-size: 1rem;
       text-transform: uppercase;
       transition: width 300ms linear;
-
-      &:before {
-        display: block;
-        width: 20px;
-        height: 20px;
-        background: red;
-        content: 'x';
-      }
     }
 
     & .cancel {
