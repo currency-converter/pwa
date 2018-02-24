@@ -12,7 +12,6 @@ import '../../assets/images/logo/128.png';
 import '../../assets/images/logo/256.png';
 import '../../assets/images/logo/512.png';
 
-
 const checkLang = lang => new RegExp(`^${lang}`, 'i').test(navigator.language);
 const checkHant = () => /hant|hk|mo|tw/i.test(navigator.language);
 
