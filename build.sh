@@ -33,6 +33,6 @@ else
   # 调整编译产物的目录结构
   rm -rf assets
   mv prd/assets assets
-  mkdir prd/assets/nocache
-  mv prd/assets/index.html prd/assets/sw.js prd/assets/nocache
+  mkdir assets/nocache
+  mv assets/index.html assets/sw.js assets/nocache
 fi
