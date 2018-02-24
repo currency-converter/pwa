@@ -15,8 +15,8 @@
       content: 'D';
       font-family: 'cc';
       left: 12px;
-      top: 9px;
-      color: #666;
+      top: 10px;
+      color: #999;
     }
 
     & .keyword {
@@ -28,10 +28,11 @@
       font-size: 1rem;
       text-transform: uppercase;
       transition: width 300ms linear;
+      border-radius: 15px;
     }
 
     & .cancel {
-      width: 70px;
+      width: 100px;
       text-align: center;
       line-height: 28px;
       font-size: 0.9rem;
