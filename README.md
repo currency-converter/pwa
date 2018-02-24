@@ -36,6 +36,19 @@
   npm run serve -- -c
   ```
 
+## 同步到多个仓库
+```
+# 建立远程链接
+git remote add github https://github.com/currency-converter/pwa.git
+git fetch github
+
+# 提交代码
+git add .
+git commit -m 'xx'
+git push origin/分支名
+git push github HEAD:init
+```
+
 ## 目录结构
 
 ```
