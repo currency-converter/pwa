@@ -5,3 +5,4 @@ node_modules/
 /stats.json
 .idea/
 /.tmp/
+.env
