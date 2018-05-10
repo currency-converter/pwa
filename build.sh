@@ -31,8 +31,10 @@ else
   npm run build:$1
 
   # 调整编译产物的目录结构
-  mkdir prd/nocache
-  mv prd/templates/index.html sw.js prd/nocache
+  cd prd
+  mkdir nocache
+  mv templates/index.html sw.js nocache
   rm -rf stats.html
+  cd ..
   mv prd public
 fi
