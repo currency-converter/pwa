@@ -31,8 +31,8 @@ else
   npm run build:$1
 
   # 调整编译产物的目录结构
-  rm -rf assets
-  mv prd/assets assets
-  mkdir assets/nocache
-  mv assets/index.html assets/sw.js assets/nocache
+  mkdir prd/nocache
+  mv prd/templates/index.html sw.js prd/nocache
+  rm -rf stats.html
+  mv prd public
 fi
