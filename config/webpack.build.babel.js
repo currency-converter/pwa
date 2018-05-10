@@ -9,23 +9,15 @@
 
 import OfflinePlugin from 'offline-plugin';
 
-export default (webpackConfig, program, appConfig) => {
+export default (webpackConfig/* , program, appConfig */) => {
   const config = webpackConfig;
-  const {
-    path: {
-      templates,
-      assetsDist
-    },
-    fileHashLength
-  } = appConfig;
+  config.plugins.push(new OfflinePlugin({
+    // 缓存首页
+    externals: ['/'],
 
-  // config.plugins.push(new OfflinePlugin({
-  //   // 缓存首页
-  //   externals: ['/'] // ,
-  //
-  //   // 禁用 appcache
-  //   // AppCache: false
-  // }));
+    // 禁用 appcache
+    AppCache: false
+  }));
 
   return config;
 };

@@ -7,7 +7,7 @@
     display: flex;
     padding: 5px;
 
-    &:before {
+    &::before {
       position: absolute;
       display: block;
       width: 20px;
@@ -21,7 +21,6 @@
 
     & .keyword {
       width: 100%;
-      border-radius: 5px;
       outline: none;
       border: none;
       padding: 3px 3px 3px 24px;

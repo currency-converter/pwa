@@ -10,7 +10,10 @@
     "build:prod": "NODE_ENV=production packing build",
     "serve": "packing serve",
     "serve:dist": "packing serve-dist",
-    "lint": "eslint --fix src"
+    "stylelint": "stylelint --fix \"src/**/*.(css|less|sass|scss)\"",
+    "eslint": "eslint --fix src",
+    "lint": "npm run stylelint && npm run eslint",
+    "push": "git push github HEAD:master"
   },
   "pre-commit": [
     "lint"
@@ -19,9 +22,8 @@
     "axios": "^0.17.1",
     "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.5",
-    "mini-css-extract-plugin": "^0.3.0",
-    "offline-plugin": "^4.9.0",
-    "packing": "^3.0.0-beta.3",
+    "offline-plugin": "^5.0.3",
+    "packing": "^3.0.3",
     "packing-template-html": "^1.1.2",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",

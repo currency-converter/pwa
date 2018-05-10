@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { FormattedMessage, FormattedRelative } from 'react-intl';
 import Switch from 'rc-switch';
 import cx from 'classnames';
+import 'rc-switch/assets/index.css';
 import { toFixed } from '../../util';
 import { updateSettings } from '../../actions';
 import Nav from '../../components/Nav';
 import View from '../../components/View';
 import SpinButton from '../../components/SpinButton';
 import './settings.css';
-import './rcswitch.css';
 
 @connect(state => state)
 export default class Settings extends Component {

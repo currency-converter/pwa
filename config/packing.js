@@ -8,18 +8,16 @@
 export default (packing) => {
   const p = packing;
 
-  p.templateEngine = 'html';
-  p.templateExtension = '.html';
-
   p.path.entries = {
     index: './src/entries/index.js'
   };
-
-  p.path.src.templates = 'templates';
+  // p.path.src.templates = 'templates';
   p.path.dist.templates = 'templates';
 
-  // 往网页中注入 manifest.json
-  p.templateInjectManifest = 'manifest.json';
+  p.template.options.engine = 'html';
+  p.template.options.extension = '.html';
+  p.template.options.source = 'src/templates/default.html';
+  p.template.options.injectManifest = true;
 
   // 将所有 js 打成一个包
   p.commonChunks = {};
