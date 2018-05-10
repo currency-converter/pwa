@@ -25,6 +25,6 @@ export default {
       src: resolve(`${logoDir}/512.png`),
       sizes: '512x512',
       destination: logoDir
-    },
+    }
   ]
 };
