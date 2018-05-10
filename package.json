@@ -13,7 +13,9 @@
     "stylelint": "stylelint --fix \"src/**/*.(css|less|sass|scss)\"",
     "eslint": "eslint --fix src mock",
     "lint": "npm run stylelint && npm run eslint",
-    "push": "git push github HEAD:master"
+    "set-github-username": "git config user.name \"zhongzhi107\"",
+    "set-gitlab-username": "git config user.name \"zhi.zhong\"",
+    "push": "npm run set-github-username && git push github HEAD:master && npm run set-gitlab-username"
   },
   "pre-commit": [
     "lint"
