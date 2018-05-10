@@ -11,7 +11,7 @@
     "serve": "packing serve",
     "serve:dist": "packing serve-dist",
     "stylelint": "stylelint --fix \"src/**/*.(css|less|sass|scss)\"",
-    "eslint": "eslint --fix src",
+    "eslint": "eslint --fix src mock",
     "lint": "npm run stylelint && npm run eslint",
     "push": "git push github HEAD:master"
   },
