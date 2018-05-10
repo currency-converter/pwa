@@ -34,7 +34,7 @@ else
   cd prd
   mkdir nocache
   mv templates/index.html sw.js nocache
-  rm -rf stats.html
+  rm -rf templates stats.html
   cd ..
   mv prd public
 
