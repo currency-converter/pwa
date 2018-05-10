@@ -18,6 +18,9 @@ export default (packing) => {
   p.template.options.extension = '.html';
   p.template.options.source = 'src/templates/default.html';
   p.template.options.injectManifest = true;
+  p.template.options.favicon = '/assets/images/logo/128.png';
+
+  p.visualizer.enable = false;
 
   // 将所有 js 打成一个包
   p.commonChunks = {};

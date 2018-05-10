@@ -23,7 +23,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.5",
     "offline-plugin": "^5.0.3",
-    "packing": "^3.0.3",
+    "packing": "^3.0.4",
     "packing-template-html": "^1.1.2",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",
