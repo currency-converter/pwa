@@ -37,4 +37,7 @@ else
   rm -rf stats.html
   cd ..
   mv prd public
+
+  # 新建一个空prd避免qzz同步服务器时出错
+  mkdir prd
 fi
