@@ -20,7 +20,7 @@ export default (packing) => {
   p.template.options.injectManifest = true;
   p.template.options.favicon = '/assets/images/logo/128.png';
 
-  p.visualizer.enable = false;
+  p.visualizer.options.open = false;
 
   // 将所有 js 打成一个包
   p.commonChunks = {};
@@ -32,8 +32,6 @@ export default (packing) => {
     // API转发
     '^/api/(.*)': 'require!/mock/api/$1.js'
   };
-
-  // p.minimize = false;
 
   return p;
 };
