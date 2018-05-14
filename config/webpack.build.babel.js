@@ -12,6 +12,7 @@ import OfflinePlugin from 'offline-plugin';
 export default (webpackConfig/* , program, appConfig */) => {
   const config = webpackConfig;
   config.plugins.push(new OfflinePlugin({
+    publicPath: '/',
     // 缓存首页
     externals: ['/'],
 
