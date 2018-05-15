@@ -33,6 +33,6 @@ else
   # 调整编译产物的目录结构
   mkdir public
   cd prd
-  mv templates/index.html sw.js ../public
+  mv templates/index.html sw.js manifest_*.json ../public
   rm -rf templates stats.html
 fi
