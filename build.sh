@@ -24,11 +24,19 @@ else
   # 选择 node 编译类型时，jenkins 会自动安装依赖
   # 为了确保依赖包成功安装，此处再检查一下 packing 依赖包是否安装
   if [ ! -d node_modules/packing ]; then
+    t1=$(date +%s)
     npm install --production --registry https://registry.npm.taobao.org
+    t2=$(date +%s)
+    t=$((t2 - t1))
+    echo "npm install 耗时 $t 秒"
   fi
 
   # 开始编译工程
+  t1=$(date +%s)
   npm run build:$1
+  t2=$(date +%s)
+  t=$((t2 - t1))
+  echo "npm build:$1 耗时 $t 秒"
 
   # 调整编译产物的目录结构
   mkdir public
