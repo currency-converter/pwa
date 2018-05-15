@@ -33,6 +33,10 @@ else
   # 调整编译产物的目录结构
   mkdir public
   cd prd
-  mv templates/index.html sw.js manifest_*.json ../public
+  mv templates/index.html sw.js ../public
   rm -rf templates stats.html
+  cd ..
+  mv prd public/cacheable
+  # 新建一个空prd避免qzz同步服务器时出错
+  mkdir prd
 fi
