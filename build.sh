@@ -31,13 +31,8 @@ else
   npm run build:$1
 
   # 调整编译产物的目录结构
+  mkdir public
   cd prd
-  mkdir nocache
-  mv templates/index.html sw.js nocache
+  mv templates/index.html sw.js ../public
   rm -rf templates stats.html
-  cd ..
-  mv prd public
-
-  # 新建一个空prd避免qzz同步服务器时出错
-  mkdir prd
 fi
