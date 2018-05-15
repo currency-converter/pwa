@@ -13,7 +13,7 @@ export default (webpackConfig/* , program, appConfig */) => {
   const config = webpackConfig;
   config.plugins.push(new OfflinePlugin({
     // sw.js 发布的路径
-    publicPath: '/',
+    // publicPath: '/',
 
     // 缓存首页
     externals: ['/'],

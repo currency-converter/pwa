@@ -17,10 +17,10 @@ export default (packing) => {
   p.template.options.engine = 'html';
   p.template.options.extension = '.html';
   p.template.options.source = 'src/templates/default.html';
-  p.template.options.injectManifest = true;
   p.template.options.favicon = '/assets/images/logo/128.png';
+  p.template.options.injectManifest = true;
 
-  p.visualizer.options.open = false;
+  p.visualizer.enabled = false;
 
   // 将所有 js 打成一个包
   p.commonChunks = {};
