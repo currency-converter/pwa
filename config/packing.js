@@ -11,12 +11,12 @@ export default (packing) => {
   p.path.entries = {
     index: './src/entries/index.js'
   };
-  // p.path.src.templates = 'templates';
+  // html 模版类型没有 layouts 和 pages
   p.path.dist.templates = 'templates';
 
   p.template.options.engine = 'html';
   p.template.options.extension = '.html';
-  p.template.options.source = 'src/templates/default.html';
+  p.template.options.master = 'src/templates/default.html';
   p.template.options.favicon = '/assets/images/logo/128.png';
   p.template.options.injectManifest = true;
 

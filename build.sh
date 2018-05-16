@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=/usr/local/n/versions/node/6.2.1/bin:$PATH
+export PATH=/usr/local/n/versions/node/8.9.1/bin:$PATH
 
 help()
 {
