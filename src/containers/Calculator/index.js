@@ -320,7 +320,7 @@ class Calculator extends Component {
               <tr>
                 <td onClick={this.onInput.bind(this, '1')}>1</td>
                 <td onClick={this.onInput.bind(this, '2')}>2</td>
-                <td onClick={this.onInput.bind(this, '3')}>3</td>
+                <td onClick={this.onInput.bind(this, '3')}>33</td>
               </tr>
               <tr>
                 <td onClick={this.onSettingsClick.bind(this)} className="cc gear">A</td>
