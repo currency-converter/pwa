@@ -39,12 +39,12 @@ else
   echo "npm build:$1 耗时 $t 秒"
 
   # 调整编译产物的目录结构
-  mkdir public
   cd prd
-  mv templates/index.html sw.js ../public
+  mkdir disable-cache
+  mv templates/index.html sw.js disable-cache
   rm -rf templates stats.html
   cd ..
-  mv prd public/cacheable
+  mv prd public
   # 新建一个空prd避免qzz同步服务器时出错
   mkdir prd
 fi
